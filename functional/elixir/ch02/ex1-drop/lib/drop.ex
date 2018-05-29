@@ -5,6 +5,9 @@ defmodule Drop do
   the height from which the object falls, specified in meters,
   and the functions returns a velocity in meters per second.
   """
+
+  @spec fall_velocity(number()) :: float()
+
   import :math, only: [sqrt: 1]
   # From :math module, only get sqrt function, with arity 1
   def fall_velocity(distance, gravity \\ 9.8) do
