@@ -6,12 +6,24 @@ defmodule Drop do
   and the functions returns a velocity in meters per second.
   """
 
-  @spec fall_velocity(number()) :: float()
+  # @spec fall_velocity(number()) :: float()
 
   import :math, only: [sqrt: 1]
   # From :math module, only get sqrt function, with arity 1
-  def fall_velocity(distance, gravity \\ 9.8) do
-    sqrt(2 * gravity * distance)
+  #  def fall_velocity(distance, gravity \\ 9.8) do
+  #  sqrt(2 * gravity * distance)
+  # end
+
+  def fall_velocity(:earth, distance) when distance >= 0 do
+    sqrt(2 * 9.8 * distance)
+  end
+
+  def fall_velocity(:moon, distance) when distance >= 0 do
+    sqrt(2 * 1.6 * distance)
+  end
+
+  def fall_velocity(:mars, distance) when distance >= 0 do
+    sqrt(2 * 3.71 * distance)
   end
 end
 
